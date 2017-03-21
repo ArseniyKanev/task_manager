@@ -1,0 +1,7 @@
+- flash.each do |key, value|
+  div class="alert alert-#{key} alert-dismissable fade in col-md-4 col-md-offset-4"
+    a.close aria-label="close" data-dismiss="alert" href="#" ×
+    ul
+      - value.each do |v|
+        li
+          = v
