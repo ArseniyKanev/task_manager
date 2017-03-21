@@ -14,9 +14,13 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'slim-rails'
 gem 'simple_form'
 gem 'aasm'
+gem 'factory_girl_rails'
+gem 'faker'
+gem 'shoulda'
 
 group :development, :test do
   gem 'byebug'
+  gem 'guard-rspec'
   gem 'rspec-rails', '~> 3.5'
 end
 
