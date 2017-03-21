@@ -6,6 +6,8 @@ class Task < ActiveRecord::Base
 
   validates :user_id, :name, presence: true
 
+  delegate :email, to: :user
+
   aasm column: :state do
     state :new, initial: true
     state :started

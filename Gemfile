@@ -16,6 +16,8 @@ gem 'aasm'
 gem 'factory_girl_rails'
 gem 'faker'
 gem 'shoulda'
+gem 'will_paginate'
+gem 'will_paginate-bootstrap'
 
 group :development, :test do
   gem 'byebug'
