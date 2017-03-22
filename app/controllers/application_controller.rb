@@ -4,10 +4,19 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
 
-  rescue_from ActiveRecord::RecordNotFound, with: ->(e) { rescue_catcher(e, I18n.t('wrong_url'), 404) }
-
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  end
+
+  def user_signed_in?
+    current_user.present?
+  end
+
+  def auth
+    unless user_signed_in?
+      flash[:danger] = "Not signed in"
+      redirect_to request.fullpath and return
+    end
   end
 
   private

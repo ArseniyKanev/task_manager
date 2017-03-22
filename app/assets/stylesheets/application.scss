@@ -1,3 +1,9 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "nav";
+
+td {
+  max-width: 250px;
+  vertical-align: top;
+  padding-right:15px;
+}

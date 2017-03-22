@@ -8,13 +8,17 @@ nav.navbar.navbar-default.navbar-fixed-top
         span.icon-bar
       = link_to "Task Manager", root_path, class: "navbar-brand"
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
+      ul.nav.navbar-nav.navbar-left
+        - if can?(:read, Task)
+          li
+            = link_to "Tasks", tasks_path
       ul.nav.navbar-nav.navbar-right
         - if current_user
           li
             li.navbar-text
-              = "Signed in as #{current_user.email}"
+              = current_user.email
               - if current_user.admin?
-                = "(admin)"
+                = " (admin)"
           li
             = link_to "Sign out", sessions_path, method: :delete
         - else

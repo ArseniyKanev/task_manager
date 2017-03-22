@@ -1,0 +1,58 @@
+h1.col-md-10.col-md-offset-1
+  - if can?(:create, Task)
+    = link_to "Add Task", new_task_path,  class: 'btn btn-success pull-right'
+  = "Tasks"
+table.table-striped.col-md-10.col-md-offset-1
+  thead
+    tr
+      th
+        | id
+      th
+        | name
+      th
+        | description
+      th
+        | created at
+      - if current_user.admin?
+        th
+          | email
+      th
+      th
+      th
+      th
+  tbody
+    = content_tag_for(:tr, @tasks) do |task|
+      td
+        = task.id
+      td
+        = task.name
+      td
+        = task.description
+      td
+        = task.created_at
+      - if current_user.admin?
+        td
+          = task.email
+      td
+        .dropdown
+          button.btn.dropdown-toggle data-toggle="dropdown" type="button"
+            = task.state
+            span.caret
+          ul.dropdown-menu
+            li
+              - if task.may_start?
+                = link_to 'started', start_task_path(task, event: 'start'), method: :put, remote: true
+            li
+              - if task.may_finish?
+                = link_to 'finished', finish_task_path(task, event: 'finish'), method: :put, remote: true
+      td
+        = link_to task_path(task), class: 'btn btn-sm btn-default' do
+          .glyphicon.glyphicon-eye-open
+      td
+        = link_to edit_task_path(task), class: 'btn btn-sm btn-default' do
+          .glyphicon.glyphicon-pencil
+      td
+        = link_to task, method: :delete, class: 'btn btn-sm btn-default', remote: true do
+          .glyphicon.glyphicon-trash
+nav.with-pagination
+  = will_paginate @tasks, renderer: BootstrapPagination::Rails

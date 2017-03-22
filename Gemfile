@@ -18,11 +18,13 @@ gem 'faker'
 gem 'shoulda'
 gem 'will_paginate'
 gem 'will_paginate-bootstrap'
+gem 'cancancan'
 
 group :development, :test do
   gem 'byebug'
   gem 'guard-rspec'
   gem 'rspec-rails', '~> 3.5'
+  gem 'better_errors'
 end
 
 group :development do

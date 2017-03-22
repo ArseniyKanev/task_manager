@@ -10,7 +10,12 @@ Rails.application.routes.draw do
   end
 
   scope module: 'user' do
-    resources :tasks
+    resources :tasks do
+      member do
+        put :start
+        put :finish
+      end
+    end
   end
 
 end
