@@ -28,7 +28,7 @@ h1.col-md-8.col-md-offset-2
   strong
     = Task.human_attribute_name(:created_at)
   p
-    = @task.created_at
+    = @task.created_at.strftime("%H:%M %d-%m-%Y")
   - if @task.attachments.present?
     strong
       = Attachment.model_name.human(count: 2)
