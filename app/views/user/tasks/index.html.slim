@@ -2,7 +2,7 @@ h1.col-md-10.col-md-offset-1
   - if can?(:create, Task)
     = link_to "Add Task", new_task_path,  class: 'btn btn-success pull-right'
   = "Tasks"
-table.table-striped.col-md-10.col-md-offset-1
+table.table-striped.col-md-11.col-md-offset-1
   thead
     tr
       th
@@ -54,5 +54,5 @@ table.table-striped.col-md-10.col-md-offset-1
       td
         = link_to task, method: :delete, class: 'btn btn-sm btn-default', remote: true do
           .glyphicon.glyphicon-trash
-nav.with-pagination
+.col-md-6.col-md-offset-3
   = will_paginate @tasks, renderer: BootstrapPagination::Rails

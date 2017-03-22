@@ -19,6 +19,7 @@ gem 'shoulda'
 gem 'will_paginate'
 gem 'will_paginate-bootstrap'
 gem 'cancancan'
+gem 'nested_form_fields'
 
 group :development, :test do
   gem 'byebug'

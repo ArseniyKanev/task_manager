@@ -11,6 +11,7 @@ class User::TasksController < ApplicationController
   end
 
   def new
+    @users = User.all if current_user.admin?
   end
 
   def create
@@ -22,6 +23,7 @@ class User::TasksController < ApplicationController
   end
 
   def edit
+    @users = User.all if current_user.admin?
   end
 
   def update
@@ -59,9 +61,9 @@ class User::TasksController < ApplicationController
   private
 
   def task_params
-    params = params.require(:task).permit(:name, :description, :user_id)
-    params[:user_id] = current_user.id if current_user.user?
-    params
+    task_params = params.require(:task).permit(:name, :description, :user_id)
+    task_params[:user_id] = current_user.id if current_user.user?
+    task_params
   end
 
 end

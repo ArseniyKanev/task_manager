@@ -1,0 +1,31 @@
+h1.col-md-8.col-md-offset-2
+  = link_to tasks_path, class: 'btn btn-primary local-nav-links pull-right' do
+    .glyphicon.glyphicon-arrow-left
+  = link_to edit_task_path(@task), class: 'btn btn-primary local-nav-links pull-right' do
+    .glyphicon.glyphicon-pencil
+  = link_to new_task_path, class: 'btn btn-primary local-nav-links pull-right' do
+    .glyphicon.glyphicon-plus
+  = @task.name
+
+.col-md-8.col-md-offset-2
+  strong
+    = Task.human_attribute_name(:state)
+  p
+    = @task.state
+  strong
+    = Task.human_attribute_name(:id)
+  p
+    = @task.id
+  strong
+    = Task.human_attribute_name(:description)
+  p
+    = @task.description
+  - if current_user.admin?
+    strong
+      = Task.human_attribute_name(:email)
+    p
+      = @task.email
+  strong
+    = Task.human_attribute_name(:created_at)
+  p
+    = @task.created_at

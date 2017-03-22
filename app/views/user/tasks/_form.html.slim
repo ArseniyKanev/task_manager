@@ -1,0 +1,6 @@
+= simple_form_for @task do |f|
+  = f.input :name
+  = f.input :description
+  - if current_user.admin?
+    = f.association :user, collection: @users, label_method: :email, value_method: :id, label: Task.human_attribute_name(:email), input_html: { class: 'select-menu' }
+  = f.button :submit
