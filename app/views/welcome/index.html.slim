@@ -10,7 +10,7 @@ table.col-md-8.col-md-offset-2
   tbody
     = content_tag_for(:tr, @tasks) do |task|
       - [:id, :created_at, :name, :email].each do |a|
-        td= task.public_send(a)
+        td= a.eql?(:created_at) ? task.created_at.strftime("%H:%M %d-%m-%Y") : task.public_send(a)
 
 .col-md-6.col-md-offset-3
   = will_paginate @tasks, renderer: BootstrapPagination::Rails
