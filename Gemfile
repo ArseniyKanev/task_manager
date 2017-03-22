@@ -21,8 +21,9 @@ gem 'will_paginate-bootstrap'
 gem 'cancancan'
 gem 'nested_form_fields'
 gem 'carrierwave'
-gem "font-awesome-rails"
+gem 'font-awesome-rails'
 gem 'rails-i18n', '~> 4.0.0'
+gem 'puma'
 
 group :development, :test do
   gem 'byebug'
