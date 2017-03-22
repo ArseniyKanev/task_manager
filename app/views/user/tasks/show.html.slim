@@ -9,29 +9,29 @@ h1.col-md-8.col-md-offset-2
 
 .col-md-8.col-md-offset-2
   strong
-    = 'state'
+    = Task.human_attribute_name(:state)
   p
-    = @task.state
+    = t("task_states.#{@task.state}")
   strong
-    = 'id'
+    = Task.human_attribute_name(:id)
   p
     = @task.id
   strong
-    = 'description'
+    = Task.human_attribute_name(:description)
   p
     = @task.description
   - if current_user.admin?
     strong
-      = 'email'
+      = Task.human_attribute_name(:email)
     p
       = @task.email
   strong
-    = 'created_at'
+    = Task.human_attribute_name(:created_at)
   p
     = @task.created_at
   - if @task.attachments.present?
-
-    | Attachment
+    strong
+      = Attachment.model_name.human(count: 2)
     ul
       - @task.attachments.each do |attachment|
         - if attachment.image?

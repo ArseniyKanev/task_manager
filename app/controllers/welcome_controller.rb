@@ -1,7 +1,7 @@
 class WelcomeController < ApplicationController
 
   def index
-    @tasks = Task.preload(:user).order('created_at DESC').page(page_parameter).load
+    @tasks = Task.includes(:user).order('created_at DESC').page(page_parameter)
   end
 
 end

@@ -1,0 +1,49 @@
+ru:
+  app_title: Task Manager
+  auth:
+    sign_in: Вход
+    sign_up: Регистрация
+    sign_out: Выход
+    email: Почта
+    password: Пароль
+    errors:
+      wrong_password_email: Неправильная почта или пароль
+  activerecord:
+    models:
+      task:
+        one: Задание
+        few: Задания
+      attachment:
+        one: Файл
+        few: Файлы
+    attributes:
+      task:
+        id: ID
+        name: Название
+        email: Пользователь
+        description: Описание
+        state: Статус
+        created_at: Дата создания
+      user:
+        id: ID
+        created_at: Дата создания
+        email: Почта
+        password: Пароль
+        password_confirmation: Подтверждение
+      attachment:
+        file: Файл
+  task_states:
+    new: Новое
+    started: В процессе
+    finished: Законченное
+  task_events:
+    start: Начать
+    finish: Закончить
+  will_paginate:
+    previous_label: "<"
+    next_label: ">"
+    page_gap: "..."
+  user:
+    tasks:
+      form:
+        add_new_attachment: Добавить файл

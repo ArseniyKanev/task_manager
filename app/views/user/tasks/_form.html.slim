@@ -2,11 +2,11 @@
   = f.input :name
   = f.input :description
   - if current_user.admin?
-    = f.association :user, collection: @users, label_method: :email, value_method: :id, label: :email, class: 'select-menu'
+    = f.association :user, collection: @users, label_method: :email, value_method: :id, label: Task.human_attribute_name(:email), class: 'select-menu'
   = f.nested_fields_for :attachments do |a|
     fieldset
       legend
-        | Attachment
+        = Attachment.model_name.human
         = a.remove_nested_fields_link 'x', class: 'pull-right'
       - unless a.object.new_record?
         div

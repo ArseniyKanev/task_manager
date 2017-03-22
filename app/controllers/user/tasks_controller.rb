@@ -4,7 +4,7 @@ class User::TasksController < ApplicationController
   load_and_authorize_resource params_method: :task_params
 
   def index
-    @tasks = @tasks.preload(:user).page(page_parameter).load
+    @tasks = @tasks.includes(:user).page(page_parameter)
   end
 
   def show

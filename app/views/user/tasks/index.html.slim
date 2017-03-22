@@ -1,21 +1,21 @@
 h1.col-md-10.col-md-offset-1
   - if can?(:create, Task)
-    = link_to "Add Task", new_task_path,  class: 'btn btn-primary pull-right'
-  = "Tasks"
+    = link_to "+ #{Task.model_name.human}", new_task_path,  class: 'btn btn-primary pull-right'
+  = Task.model_name.human(count: 2)
 table.table-striped.col-md-10.col-md-offset-1
   thead
     tr
       th
-        | id
+        = Task.human_attribute_name(:id)
       th
-        | name
+        = Task.human_attribute_name(:name)
       th
-        | description
+        = Task.human_attribute_name(:description)
       th
-        | created at
+        = Task.human_attribute_name(:created_at)
       - if current_user.admin?
         th
-          | email
+          = Task.human_attribute_name(:email)
       th
       th
       th
@@ -36,15 +36,15 @@ table.table-striped.col-md-10.col-md-offset-1
       td
         .dropdown
           button.btn.dropdown-toggle data-toggle="dropdown" type="button"
-            = task.state
+            = t("task_states.#{task.state}")
             span.caret
           ul.dropdown-menu
             li
               - if task.may_start?
-                = link_to 'started', start_task_path(task, event: 'start'), method: :put, remote: true
+                = link_to t('task_events.start'), start_task_path(task, event: 'start'), method: :put, remote: true
             li
               - if task.may_finish?
-                = link_to 'finished', finish_task_path(task, event: 'finish'), method: :put, remote: true
+                = link_to t('task_events.finish'), finish_task_path(task, event: 'finish'), method: :put, remote: true
       td
         = link_to task_path(task) do
           i.fa.fa-eye aria-hidden="true"

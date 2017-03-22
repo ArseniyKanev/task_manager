@@ -1,6 +1,6 @@
 h1.col-md-8.col-md-offset-2
   = link_to tasks_path, class: 'btn btn-primary pull-right' do
       .i.fa.fa-arrow-left aria-hidden="true"
-  | Task
+  = Task.model_name.human
 .col-md-6.col-md-offset-3
   = render 'form'
