@@ -2,5 +2,17 @@
   = f.input :name
   = f.input :description
   - if current_user.admin?
-    = f.association :user, collection: @users, label_method: :email, value_method: :id, label: Task.human_attribute_name(:email), input_html: { class: 'select-menu' }
+    = f.association :user, collection: @users, label_method: :email, value_method: :id, label: :email, class: 'select-menu'
+  = f.nested_fields_for :attachments do |a|
+    fieldset
+      legend
+        | Attachment
+        = a.remove_nested_fields_link 'x', class: 'pull-right'
+      - unless a.object.new_record?
+        div
+          = a.object&.file&.file&.filename
+      = a.input :file, required: false
+  .form-group
+    = f.add_nested_fields_link :attachments, t('.add_new_attachment'), class: 'btn btn-default  pull-right'
+    .clearfix
   = f.button :submit

@@ -1,31 +1,41 @@
 h1.col-md-8.col-md-offset-2
-  = link_to tasks_path, class: 'btn btn-primary local-nav-links pull-right' do
-    .glyphicon.glyphicon-arrow-left
-  = link_to edit_task_path(@task), class: 'btn btn-primary local-nav-links pull-right' do
-    .glyphicon.glyphicon-pencil
-  = link_to new_task_path, class: 'btn btn-primary local-nav-links pull-right' do
-    .glyphicon.glyphicon-plus
+  = link_to tasks_path, class: 'btn btn-primary pull-right' do
+    i.fa.fa-arrow-left aria-hidden="true"
+  = link_to edit_task_path(@task), class: 'btn btn-primary pull-right' do
+    i.fa.fa-pencil aria-hidden="true"
+  = link_to new_task_path, class: 'btn btn-primary pull-right' do
+    i.fa.fa-plus aria-hidden="true"
   = @task.name
 
 .col-md-8.col-md-offset-2
   strong
-    = Task.human_attribute_name(:state)
+    = 'state'
   p
     = @task.state
   strong
-    = Task.human_attribute_name(:id)
+    = 'id'
   p
     = @task.id
   strong
-    = Task.human_attribute_name(:description)
+    = 'description'
   p
     = @task.description
   - if current_user.admin?
     strong
-      = Task.human_attribute_name(:email)
+      = 'email'
     p
       = @task.email
   strong
-    = Task.human_attribute_name(:created_at)
+    = 'created_at'
   p
     = @task.created_at
+  - if @task.attachments.present?
+
+    | Attachment
+    ul
+      - @task.attachments.each do |attachment|
+        - if attachment.image?
+          li
+            = image_tag attachment_path(attachment), size: '640x480'
+        - else
+          li= link_to "#{attachment.file.file.filename}", attachment.file.url

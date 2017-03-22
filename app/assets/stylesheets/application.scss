@@ -1,9 +1,5 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "nav";
-
-td {
-  font-size: 12px;
-  vertical-align: top;
-  padding-right: 15px;
-}
+@import "font-awesome";
+@import "task";

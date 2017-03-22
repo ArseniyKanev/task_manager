@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   end
 
   scope module: 'user' do
+    resources :attachments, only: :show
     resources :tasks do
       member do
         put :start

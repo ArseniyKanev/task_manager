@@ -61,7 +61,7 @@ class User::TasksController < ApplicationController
   private
 
   def task_params
-    task_params = params.require(:task).permit(:name, :description, :user_id)
+    task_params = params.require(:task).permit(:name, :description, :user_id, attachments_attributes: [:file, :id, :_destroy])
     task_params[:user_id] = current_user.id if current_user.user?
     task_params
   end

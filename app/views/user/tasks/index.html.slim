@@ -1,8 +1,8 @@
 h1.col-md-10.col-md-offset-1
   - if can?(:create, Task)
-    = link_to "Add Task", new_task_path,  class: 'btn btn-success pull-right'
+    = link_to "Add Task", new_task_path,  class: 'btn btn-primary pull-right'
   = "Tasks"
-table.table-striped.col-md-11.col-md-offset-1
+table.table-striped.col-md-10.col-md-offset-1
   thead
     tr
       th
@@ -46,13 +46,13 @@ table.table-striped.col-md-11.col-md-offset-1
               - if task.may_finish?
                 = link_to 'finished', finish_task_path(task, event: 'finish'), method: :put, remote: true
       td
-        = link_to task_path(task), class: 'btn btn-sm btn-default' do
-          .glyphicon.glyphicon-eye-open
+        = link_to task_path(task) do
+          i.fa.fa-eye aria-hidden="true"
       td
-        = link_to edit_task_path(task), class: 'btn btn-sm btn-default' do
-          .glyphicon.glyphicon-pencil
+        = link_to edit_task_path(task) do
+          i.fa.fa-pencil-square-o aria-hidden="true"
       td
-        = link_to task, method: :delete, class: 'btn btn-sm btn-default', remote: true do
-          .glyphicon.glyphicon-trash
+        = link_to task, method: :delete, remote: true do
+          i.fa.fa-times aria-hidden="true"
 .col-md-6.col-md-offset-3
   = will_paginate @tasks, renderer: BootstrapPagination::Rails
