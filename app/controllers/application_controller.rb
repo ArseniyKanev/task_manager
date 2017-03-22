@@ -14,8 +14,8 @@ class ApplicationController < ActionController::Base
 
   def auth
     unless user_signed_in?
-      flash[:danger] = "Not signed in"
-      redirect_to request.fullpath and return
+      flash[:danger] = [I18n.t('auth.errors.not_signed_in')]
+      redirect_to new_session_path and return
     end
   end
 

@@ -8,6 +8,7 @@ ru:
     password: Пароль
     errors:
       wrong_password_email: Неправильная почта или пароль
+      not_signed_in: Необходимо войти в систему
   activerecord:
     models:
       task:
