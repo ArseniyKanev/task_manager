@@ -9,6 +9,8 @@ ru:
     errors:
       wrong_password_email: Неправильная почта или пароль
       not_signed_in: Необходимо войти в систему
+      no_permissions: Нет прав
+      already_signed_in: Вход уже выполнен
   activerecord:
     models:
       task:

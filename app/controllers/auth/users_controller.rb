@@ -1,5 +1,7 @@
 class Auth::UsersController < ApplicationController
 
+  before_action :no_auth
+
   def new
     @user = User.new
   end

@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
 
   has_secure_password
 
+  enum role: { admin: 0, user: 1 }
+
   has_many :tasks, dependent: :destroy
 
   validates :email, presence: true, uniqueness: { case_sensitive: false }
@@ -9,6 +11,5 @@ class User < ActiveRecord::Base
   validates :password, presence: true, length: { minimum: 8 }, allow_nil: true
   validates :password_confirmation, presence: true, allow_nil: true
 
-  enum role: {admin: 0, user: 1}
 
 end

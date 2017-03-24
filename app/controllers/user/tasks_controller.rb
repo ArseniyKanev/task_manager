@@ -37,7 +37,7 @@ class User::TasksController < ApplicationController
   def destroy
     @task.destroy
     respond_to do |format|
-      format.html {render nothing: true}
+      format.html { render nothing: true }
       format.js {}
     end
   end
@@ -45,7 +45,7 @@ class User::TasksController < ApplicationController
   def start
     @task.start!
     respond_to do |format|
-      format.html {render nothing: true}
+      format.html { render nothing: true }
       format.js {}
     end
   end
@@ -53,7 +53,7 @@ class User::TasksController < ApplicationController
   def finish
     @task.finish!
     respond_to do |format|
-      format.html {render nothing: true}
+      format.html { render nothing: true }
       format.js {}
     end
   end

@@ -6,4 +6,8 @@ class AttachmentUploader < CarrierWave::Uploader::Base
     "attachments/#{model.id}"
   end
 
+  def url
+    "/attachments/#{model.id}"
+  end
+
 end
