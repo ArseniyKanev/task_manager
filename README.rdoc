@@ -1,3 +1,6 @@
 Тестовое задание
+
 user: user@mail.ru, password: password
 admin: admin@mail.ru, password: password
+
+https://travis-ci.org/ArseniyKanev/task_manager
