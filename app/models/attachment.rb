@@ -7,7 +7,7 @@ class Attachment < ActiveRecord::Base
   validates :file, presence: true
 
   def image?
-    file&.file&.content_type =~ %r{image\/.*}
+    file.file.content_type =~ %r{image\/.*}
   end
 
 end

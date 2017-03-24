@@ -24,6 +24,7 @@ gem 'carrierwave'
 gem 'font-awesome-rails'
 gem 'rails-i18n', '~> 4.0.0'
 gem 'puma'
+gem 'simplecov', require: false
 
 group :development, :test do
   gem 'byebug'

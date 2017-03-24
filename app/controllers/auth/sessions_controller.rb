@@ -1,5 +1,8 @@
 class Auth::SessionsController < ApplicationController
 
+  before_action :auth, only: :destroy
+  before_action :no_auth, only: [:new, :create]
+
   def new
   end
 

@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   root 'welcome#index'
 
   scope module: 'auth' do
@@ -18,6 +17,4 @@ Rails.application.routes.draw do
       end
     end
   end
-
 end
-
